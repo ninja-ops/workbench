@@ -1,0 +1,82 @@
+---
+- name: workbench
+  hosts: localhost
+  connection: local
+  become: true
+  gather_facts: false
+  tasks:
+    - name: ping
+      ansible.builtin.ping:
+
+    - name: install base tools
+      ansible.builtin.apt:
+        name:
+          - curl
+          - mc
+          - nano
+          - net-tools
+          - neofetch
+          - dstat
+          - htop
+          - tar
+          - unzip
+          - screen
+          - tmux
+          - iftop
+          - sloccount
+          - doxygen
+          - sqlite3
+          - make
+          - autoconf
+          - httperf
+          - iperf3
+          - bonnie++
+          - cbm
+          - nload
+          - tcptrack
+          - wget
+          - curl
+          - httpie
+          - mkcert
+        state: present
+
+    - name: install gcc
+      ansible.builtin.apt:
+        name:
+          - gcc
+        state: present
+
+    - name: install golang
+      ansible.builtin.apt:
+        name:
+          - golang-1.20
+        state: present
+
+    - name: install python3
+      ansible.builtin.apt:
+        name:
+          - python3-pip
+          - python3-dev
+          - pipenv
+        state: present
+
+    - name: install php
+      ansible.builtin.apt:
+        name:
+          - php-cli
+          - php-fpm
+          - php-xdebug
+          - composer
+        state: present
+
+    - name: install freepascal
+      ansible.builtin.apt:
+        name:
+          - fpc
+        state: present
+
+    - name: install nodejs
+      ansible.builtin.apt:
+        name:
+          - node-latest-version
+        state: present
